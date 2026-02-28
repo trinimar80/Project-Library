@@ -1,0 +1,23 @@
+📁 Aplicación Web Biblioteca
+├── 🔐 Página 1: Login
+│   ├── Campo: Usuario (login)
+│   ├── Campo: Contraseña (password)
+│   └── Botón: "Entrar"
+│
+├── 🏠 Página 2: Principal (Home)
+│   ├── Botón/Link: "Ver tablas"
+│   ├── Botón/Link: "Agregar datos"
+│   └── Botón/Link: "Actualizar datos"
+│
+├── 📊 Página 3: Visualización de tablas
+│   ├── Opción: Ver todas las tablas sin filtro
+│   ├── Opción: Filtrar por 1 valor (ej: buscar libro por título)
+│   └── Opción: Filtrar por múltiples valores (ej: autor y género)
+│
+├── ➕ Página 4: Agregar datos
+│   ├── Opción: Agregar 1 fila a 1 tabla
+│   └── Opción: Agregar 1 fila a tablas relacionadas (ej: nuevo libro con sus géneros)
+│
+└── ✏️ Página 5: Actualizar datos
+    ├── Opción: Actualizar 1 registro (ej: cambiar precio de un libro)
+    └── Opción: Actualizar múltiples registros (ej: aumentar precio de todos los libros de un autor)
