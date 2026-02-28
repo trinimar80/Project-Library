@@ -1,52 +1,92 @@
 version: '3.8'
+
 services:
-    db:
-        image: postgres:17
-        restart: always    
-        container_name: seminario_db
-        environment:
-            POSTGRES_USER: seminar_user
-            POSTGRES_PASSWORD: Toro1234
-            POSTGRES_DB: seminario_db
-            POSTGRES_INITDB_LOCALE: ru_RU.UTF-8
+  db:
+    image: postgres:17
+    restart: always    
+    container_name: seminario_db
+    environment:
+      POSTGRES_USER: seminar_user
+      POSTGRES_PASSWORD: Toro1234
+      POSTGRES_DB: seminario_db
+      POSTGRES_INITDB_LOCALE: ru_RU.UTF-8
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - secure_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U seminar_user -d seminario_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-        ports :
-            - "5432:5432"
-        volumes:
-          - postgres_data:/var/lib/postgresql/data
-          - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-        networks:
-            - secure_network
-    vault:
-        image: hashicorp/vault:latest
-        container_name: vault_server
-        ports:
-            - "8200:8200"
-        environment:
-            VAULT_DEV_ROOT_TOKEN_ID: "root"
-            VAULT_ADDR: "http://vault_server:8200"
-        cap_add:
-        - IPC_LOCK
-        networks:
-          - secure_network
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault_server
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root"
+      VAULT_ADDR: "http://vault_server:8200"
+    cap_add:
+      - IPC_LOCK
+    networks:
+      - secure_network
+    healthcheck:
+      test: ["CMD", "vault", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-    pinger:
-        build: . 
-        container_name: postgres_pinger
-        env_file:
-            - .env
-        depends_on:
-            - db
-            - vault
-        networks:
-            - secure_network
-        command: python pinger.py
-        
+  pinger:
+    build: 
+      context: .
+      dockerfile: Dockerfile.pinger  # Necesitaremos crear este archivo
+    container_name: postgres_pinger
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+      vault:
+        condition: service_healthy
+    networks:
+      - secure_network
+    command: python pinger.py
+
+  # NUEVO: Servicio web para Tarea 7
+  web_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.web  # Nuevo Dockerfile para la web
+    container_name: library_web
+    ports:
+      - "5000:5000"  # Puerto para la aplicación web
+    environment:
+      DB_HOST: db
+      DB_NAME: seminario_db
+      APP_LOG_PATH: /app/logs/app.log
+      FLASK_ENV: development
+      FLASK_APP: app.py
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - secure_network
+    volumes:
+      - ./logs:/app/logs  # Para persistir los logs
+    stdin_open: true  # Modo interactivo
+    tty: true
+
 networks:
-    secure_network:
-        driver: bridge    
+  secure_network:
+    driver: bridge
+
 volumes:
-    postgres_data:
-    
-        
-        
+  postgres_data:
+  

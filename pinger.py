@@ -11,7 +11,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 def connect_to_db(user, password):
-    """Function from Task #3 to connect to PostgreSQL."""
+    
     try:
         conn = psycopg2.connect(
             host="db",     

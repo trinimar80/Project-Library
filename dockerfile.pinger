@@ -1,4 +1,4 @@
-#FROM python:3.11
+# Dockerfile.pinger (tu Dockerfile actual, solo renombrado)
 FROM python:3.11-slim
 
 # Evitar que Python genere archivos .pyc y permitir logs en tiempo real
@@ -25,9 +25,9 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
 
-
 # Crear directorio para logs (coincidiendo con el volumen del compose)
 RUN mkdir -p /app/logs
 
 # Comando de ejecución
 CMD ["python", "pinger.py"]
+
