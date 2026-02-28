@@ -1,0 +1,17 @@
+[Página Login]
+      │
+      ▼ (login correcto)
+[Página Principal]
+      │
+      ├──► [Ver Tablas] 
+      │       ├──► Sin filtro
+      │       ├──► Con 1 filtro
+      │       └──► Con múltiples filtros
+      │
+      ├──► [Agregar Datos]
+      │       ├──► Una tabla
+      │       └──► Tablas relacionadas
+      │
+      └──► [Actualizar Datos]
+              ├──► Un registro
+              └──► Múltiples registros
