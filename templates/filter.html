@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library - Filter Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: auto; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        select, input { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .back { margin-bottom: 20px; }
+        .filter-type { margin: 20px 0; }
+        .filter-type label { display: inline; margin-right: 20px; }
+        .hidden { display: none; }
+    </style>
+    <script>
+        function toggleFilterType() {
+            var filterType = document.querySelector('input[name="filter_type"]:checked').value;
+            document.getElementById('single-filter').classList.toggle('hidden', filterType !== 'single');
+            document.getElementById('multiple-filter').classList.toggle('hidden', filterType !== 'multiple');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="back">
+            <a href="/home">← Back to Home</a>
+        </div>
+        
+        <h1>Search & Filter Data</h1>
+        
+        <form method="POST" action="/filter">
+            <div class="form-group">
+                <label>Select Table:</label>
+                <select name="table" required>
+                    <option value="Authors">Authors</option>
+                    <option value="Publishers">Publishers</option>
+                    <option value="Genres">Genres</option>
+                    <option value="Books">Books</option>
+                    <option value="Book_Genres">Book Genres</option>
+                </select>
+            </div>
+            
+            <div class="filter-type">
+                <label>
+                    <input type="radio" name="filter_type" value="single" checked onclick="toggleFilterType()"> Single Filter
+                </label>
+                <label>
+                    <input type="radio" name="filter_type" value="multiple" onclick="toggleFilterType()"> Multiple Filters
+                </label>
+            </div>
+            
+            <div id="single-filter">
+                <div class="form-group">
+                    <label>Column:</label>
+                    <input type="text" name="column" placeholder="e.g., name, title, author_id" required>
+                </div>
+                <div class="form-group">
+                    <label>Value:</label>
+                    <input type="text" name="value" placeholder="Search value" required>
+                </div>
+            </div>
+            
+            <div id="multiple-filter" class="hidden">
+                <div class="form-group">
+                    <label>Column 1:</label>
+                    <input type="text" name="column1" placeholder="First column">
+                </div>
+                <div class="form-group">
+                    <label>Value 1:</label>
+                    <input type="text" name="value1" placeholder="First value">
+                </div>
+                <div class="form-group">
+                    <label>Column 2:</label>
+                    <input type="text" name="column2" placeholder="Second column">
+                </div>
+                <div class="form-group">
+                    <label>Value 2:</label>
+                    <input type="text" name="value2" placeholder="Second value">
+                </div>
+            </div>
+            
+            <button type="submit">Apply Filter</button>
+        </form>
+    </div>
+</body>
+</html>

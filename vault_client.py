@@ -21,7 +21,7 @@ def get_db_credentials():
 
     try:
         # 2. Inicializar el cliente de Vault
-        client = hvac.Client(url=vault_url)
+        client = hvac.Client(url=vault_url, token='root')
 
         # 3. Autenticarse con AppRole (Método recomendado para aplicaciones)
         client.auth.approle.login(role_id=role_id, secret_id=secret_id)

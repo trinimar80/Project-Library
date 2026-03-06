@@ -26,6 +26,7 @@ services:
   vault:
     image: hashicorp/vault:latest
     container_name: vault_server
+    stop_grace_period: 5s
     ports:
       - "8200:8200"
     environment:
@@ -46,6 +47,7 @@ services:
       context: .
       dockerfile: Dockerfile.pinger  # Necesitaremos crear este archivo
     container_name: postgres_pinger
+    stop_grace_period: 5s
     env_file:
       - .env
     depends_on:
@@ -70,7 +72,7 @@ services:
       DB_NAME: seminario_db
       APP_LOG_PATH: /app/logs/app.log
       FLASK_ENV: development
-      FLASK_APP: app.py
+      FLASK_APP: web_app.py
     env_file:
       - .env
     depends_on:

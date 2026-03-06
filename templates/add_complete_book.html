@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Complete Book</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .back { margin-bottom: 20px; }
+        .note { color: #666; font-size: 0.9em; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back">
+            <a href="/home">← Back to Home</a>
+        </div>
+        
+        <h1>Add Complete Book (with Author, Publisher, Genres)</h1>
+        
+        <form method="POST" action="/add_complete_book">
+            <div class="form-group">
+                <label>Book Title:</label>
+                <input type="text" name="title" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Author Name:</label>
+                <input type="text" name="author_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Author Birth Year:</label>
+                <input type="number" name="author_birth" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Publisher Name:</label>
+                <input type="text" name="publisher_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Genres (comma-separated):</label>
+                <input type="text" name="genres" placeholder="e.g., Fantasy, Adventure, Drama" required>
+                <div class="note">Separate multiple genres with commas</div>
+            </div>
+            
+            <button type="submit">Add Complete Book</button>
+        </form>
+    </div>
+</body>
+</html>

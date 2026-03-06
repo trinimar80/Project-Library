@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Tables</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        h2 { color: #333; }
+        .back { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <a href="/home">← Back to Home</a>
+    </div>
+    <h1>Database Tables</h1>
+    
+    {% for table_name, table_data in tables.items() %}
+    <h2>{{ table_name }}</h2>
+    <table>
+        <thead>
+            <tr>
+                {% for column in table_data.columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table_data.rows %}
+            <tr>
+                {% for value in row %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+</body>
+</html>
