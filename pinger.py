@@ -57,12 +57,6 @@ def main():
                 cur.close() 
                 conn.close()
          
-            target_url = "https://google.com" 
-            try:
-                resp = requests.get(target_url, timeout=5)
-                logging.info(f"PING {target_url} - Status: {resp.status_code}")
-            except Exception as e:
-                logging.error(f"Error en el ping: {e}")
         else:
             logging.error("❌ Vault credentials could not be obtained.")
        
