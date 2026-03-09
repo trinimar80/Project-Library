@@ -87,63 +87,90 @@ class DatabaseManager:
             return None
 
     def insert_related(self, title, author_name, publisher_name, isbn, genre_names):
-        try:
-            with self.connection.cursor() as cursor:
-                # Insertar autor
-                cursor.execute(
-                    'INSERT INTO "Authors" (name) VALUES (%s) ON CONFLICT (name) DO NOTHING RETURNING author_id',
-                    (author_name,)
-                )
-                author_result = cursor.fetchone()
-                if author_result:
-                    author_id = author_result[0]
-                else:
-                    cursor.execute('SELECT author_id FROM "Authors" WHERE name = %s', (author_name,))
-                    author_id = cursor.fetchone()[0]
+    print("\n" + "="*50)
+    print("🔍 INSERT_RELATED")
+    print(f"📌 Title: {title}")
+    print(f"📌 Author: {author_name}")
+    print(f"📌 Publisher: {publisher_name}")
+    print(f"📌 ISBN: {isbn}")
+    print(f"📌 Genre: {genre_names}")
+    
+    try:
+        with self.connection.cursor() as cursor:
+            # 1. Verificar/Insertar autor 
+            print("\n1️⃣ Process author...")
+            cursor.execute(
+                'INSERT INTO "Authors" (name) VALUES (%s) ON CONFLICT (name) DO NOTHING RETURNING author_id',
+                (author_name,)
+            )
+            author_result = cursor.fetchone()
+            if author_result:
+                author_id = author_result[0]
+                print(f"   ✅ New author created with ID: {author_id}")
+            else:
+                cursor.execute('SELECT author_id FROM "Authors" WHERE name = %s', (author_name,))
+                author_id = cursor.fetchone()[0]
+                print(f"   ✅ Existing author found with ID: {author_id}")
 
-                # Insertar editorial
-                cursor.execute(
-                    'INSERT INTO "Publishers" (name) VALUES (%s) ON CONFLICT (name) DO NOTHING RETURNING publisher_id',
-                    (publisher_name,)
-                )
-                pub_result = cursor.fetchone()
-                if pub_result:
-                    publisher_id = pub_result[0]
-                else:
-                    cursor.execute('SELECT publisher_id FROM "Publishers" WHERE name = %s', (publisher_name,))
-                    publisher_id = cursor.fetchone()[0]
+            # 2. Verificar/Insertar editorial
+            print("\n2️⃣ Process Publisher...")
+            cursor.execute(
+                'INSERT INTO "Publishers" (name) VALUES (%s) ON CONFLICT (name) DO NOTHING RETURNING publisher_id',
+                (publisher_name,)
+            )
+            pub_result = cursor.fetchone()
+            if pub_result:
+                publisher_id = pub_result[0]
+                print(f"   ✅ New publishing created with ID: {publisher_id}")
+            else:
+                cursor.execute('SELECT publisher_id FROM "Publishers" WHERE name = %s', (publisher_name,))
+                publisher_id = cursor.fetchone()[0]
+                print(f"   ✅ Existing publisher found with ID: {publisher_id}")
 
-                # Insertar libro
-                import time
-                if not isbn:
-                    isbn = f"TMP-{int(time.time())}"
+            # 3. Insertar libro
+            print("\n3️⃣ Insert book...")
+            import time
+            if not isbn:
+                isbn = f"TMP-{int(time.time())}"
+            print(f"   📖 generated ISBN: {isbn}")
+            
+            cursor.execute(
+                'INSERT INTO "Books" (title, author_id, publisher_id, publication_year, isbn) VALUES (%s, %s, %s, %s, %s) RETURNING book_id',
+                (title, author_id, publisher_id, 2024, isbn)
+            )
+            book_id = cursor.fetchone()[0]
+            print(f"   ✅ Book inserted with ID: {book_id}")
+
+            # 4. Procesar géneros
+            print("\n4️⃣ Process genre...")
+            for genre in genre_names:
+                               
+                cursor.execute('INSERT INTO "Genres" (name) VALUES (%s) ON CONFLICT (name) DO NOTHING', (genre,))
+                cursor.execute('SELECT genre_id FROM "Genres" WHERE name = %s', (genre,))
+                genre_result = cursor.fetchone()
                 
-                cursor.execute(
-                    'INSERT INTO "Books" (title, author_id, publisher_id, publication_year, isbn) VALUES (%s, %s, %s, %s, %s) RETURNING book_id',
-                    (title, author_id, publisher_id, 2024, isbn)
-                )
-                book_id = cursor.fetchone()[0]
+                if genre_result:
+                    genre_id = genre_result[0]
+                    print(f"      ✅ Genre ID found: {genre_id}")
+                    cursor.execute(
+                        'INSERT INTO "Book_Genres" (book_id, genre_id) VALUES (%s, %s) ON CONFLICT DO NOTHING',
+                        (book_id, genre_id)
+                    )
+                    print(f"      🔗 Relation created: book {book_id} - genre {genre_id}")
+                else:
+                    print(f"      ❌ ERROR: The genre could not be found/created: {genre}")
 
-                # Procesar géneros
-                for genre in genre_names:
-                    cursor.execute('INSERT INTO "Genres" (name) VALUES (%s) ON CONFLICT (name) DO NOTHING', (genre,))
-                    cursor.execute('SELECT genre_id FROM "Genres" WHERE name = %s', (genre,))
-                    genre_result = cursor.fetchone()
-                    if genre_result:
-                        genre_id = genre_result[0]
-                        cursor.execute(
-                            'INSERT INTO "Book_Genres" (book_id, genre_id) VALUES (%s, %s) ON CONFLICT DO NOTHING',
-                            (book_id, genre_id)
-                        )
+            self.connection.commit()
+            print("\n" + "="*50)
+            print(f"✅ TRANSACTION COMPLETED SUCCESSFULLY")
+            print(f"📚 ID of the book created: {book_id}")
+            return book_id
+            
+    except Exception as e:
+        self.connection.rollback()
+        print(f"❌ ERROR: {e}")
+        return None
 
-                self.connection.commit()
-                return book_id
-        except Exception as e:
-            self.connection.rollback()
-            print(f"Error in insert_related: {e}")
-            return None
-
-# Rutas
 @app.route('/')
 def index():
     return redirect(url_for('login'))
@@ -242,9 +269,9 @@ def add_complete_book():
         genres = [g.strip() for g in request.form['genres'].split(',') if g.strip()]
         book_id = db.insert_related(title, author_name, publisher_name, isbn, genres)
         if book_id:
-            return f"✅ Libro agregado. ID: {book_id}"
+            return f"✅ Book added. ID: {book_id}"
         else:
-            return "❌ Error al agregar libro completo"
+            return "❌ Error entering complete book"
     return render_template('add_complete_book.html')
 
 @app.route('/logout')

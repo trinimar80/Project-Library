@@ -276,3 +276,442 @@ HINT:  Perhaps you meant to reference the column "Authors.name".
 2026-03-06 10:07:30,407 - INFO - 172.18.0.1 - - [06/Mar/2026 10:07:30] "GET /home HTTP/1.1" 200 -
 2026-03-06 10:07:34,449 - INFO - 172.18.0.1 - - [06/Mar/2026 10:07:34] "GET /add_complete_book HTTP/1.1" 200 -
 2026-03-06 10:09:36,246 - INFO - 172.18.0.1 - - [06/Mar/2026 10:09:36] "GET /home HTTP/1.1" 200 -
+2026-03-06 11:09:04,926 - INFO - 172.18.0.1 - - [06/Mar/2026 11:09:04] "GET /filter HTTP/1.1" 200 -
+2026-03-06 11:10:30,688 - INFO - 172.18.0.1 - - [06/Mar/2026 11:10:30] "POST /filter HTTP/1.1" 200 -
+2026-03-06 11:11:08,153 - INFO - 172.18.0.1 - - [06/Mar/2026 11:11:08] "GET /filter HTTP/1.1" 200 -
+2026-03-06 11:12:03,159 - INFO - 172.18.0.1 - - [06/Mar/2026 11:12:03] "POST /filter HTTP/1.1" 200 -
+2026-03-06 11:12:25,164 - INFO - 172.18.0.1 - - [06/Mar/2026 11:12:25] "GET /filter HTTP/1.1" 200 -
+2026-03-06 11:13:18,473 - INFO - 172.18.0.1 - - [06/Mar/2026 11:13:18] "POST /filter HTTP/1.1" 200 -
+2026-03-06 11:15:40,756 - INFO - 172.18.0.1 - - [06/Mar/2026 11:15:40] "GET /filter HTTP/1.1" 200 -
+2026-03-06 16:12:01,053 - INFO - 172.18.0.1 - - [06/Mar/2026 16:12:01] "GET /home HTTP/1.1" 200 -
+2026-03-06 16:12:02,749 - INFO - 172.18.0.1 - - [06/Mar/2026 16:12:02] "GET /view_tables HTTP/1.1" 200 -
+2026-03-06 17:15:46,988 - INFO - 172.18.0.1 - - [06/Mar/2026 17:15:46] "GET /home HTTP/1.1" 200 -
+2026-03-06 17:15:49,002 - INFO - 172.18.0.1 - - [06/Mar/2026 17:15:49] "GET /filter HTTP/1.1" 200 -
+2026-03-06 17:21:35,644 - INFO - 172.18.0.1 - - [06/Mar/2026 17:21:35] "[32mGET / HTTP/1.1[0m" 302 -
+2026-03-06 17:41:28,016 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-06 17:41:40,512 - INFO -  * Restarting with stat
+2026-03-06 17:41:43,886 - WARNING -  * Debugger is active!
+2026-03-06 17:41:43,922 - INFO -  * Debugger PIN: 484-861-848
+2026-03-06 17:59:58,571 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-06 17:59:58,572 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-06 17:59:58,573 - INFO -  * Restarting with stat
+2026-03-06 18:00:01,125 - WARNING -  * Debugger is active!
+2026-03-06 18:00:01,131 - INFO -  * Debugger PIN: 991-735-616
+2026-03-06 18:06:37,677 - INFO - 172.18.0.1 - - [06/Mar/2026 18:06:37] "[32mGET /home HTTP/1.1[0m" 302 -
+2026-03-06 18:06:37,713 - INFO - 172.18.0.1 - - [06/Mar/2026 18:06:37] "GET /login HTTP/1.1" 200 -
+2026-03-06 18:06:45,393 - INFO - Successful login - User: seminar_user
+2026-03-06 18:06:45,440 - INFO - 172.18.0.1 - - [06/Mar/2026 18:06:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-06 18:06:45,515 - INFO - 172.18.0.1 - - [06/Mar/2026 18:06:45] "GET /home HTTP/1.1" 200 -
+2026-03-06 18:06:47,914 - INFO - 172.18.0.1 - - [06/Mar/2026 18:06:47] "GET /view_tables HTTP/1.1" 200 -
+2026-03-06 18:07:06,110 - INFO - 172.18.0.1 - - [06/Mar/2026 18:07:06] "GET /home HTTP/1.1" 200 -
+2026-03-06 18:07:08,727 - INFO - ==================================================
+2026-03-06 18:07:08,728 - INFO - ENTERING filter_data
+2026-03-06 18:07:08,728 - INFO - Method: GET
+2026-03-06 18:07:08,729 - INFO - Session OK: seminar_user
+2026-03-06 18:07:08,729 - INFO - GET request - showing filter form
+2026-03-06 18:07:08,733 - INFO - 172.18.0.1 - - [06/Mar/2026 18:07:08] "GET /filter HTTP/1.1" 200 -
+2026-03-06 18:07:10,293 - INFO - 172.18.0.1 - - [06/Mar/2026 18:07:10] "GET /home HTTP/1.1" 200 -
+2026-03-06 18:07:15,997 - INFO - ==================================================
+2026-03-06 18:07:15,999 - INFO - ENTERING filter_data
+2026-03-06 18:07:15,999 - INFO - Method: GET
+2026-03-06 18:07:16,000 - INFO - Session OK: seminar_user
+2026-03-06 18:07:16,001 - INFO - GET request - showing filter form
+2026-03-06 18:07:16,002 - INFO - 172.18.0.1 - - [06/Mar/2026 18:07:16] "GET /filter HTTP/1.1" 200 -
+2026-03-07 18:46:55,985 - INFO - ==================================================
+2026-03-07 18:46:57,062 - INFO - ENTERING filter_data
+2026-03-07 18:46:57,062 - INFO - Method: GET
+2026-03-07 18:46:57,117 - INFO - Session OK: seminar_user
+2026-03-07 18:46:57,143 - INFO - GET request - showing filter form
+2026-03-07 18:47:01,483 - INFO - 172.18.0.1 - - [07/Mar/2026 18:47:01] "GET /filter HTTP/1.1" 200 -
+2026-03-07 18:48:59,656 - INFO - ==================================================
+2026-03-07 18:48:59,656 - INFO - ENTERING filter_data
+2026-03-07 18:48:59,657 - INFO - Method: GET
+2026-03-07 18:48:59,657 - INFO - Session OK: seminar_user
+2026-03-07 18:48:59,657 - INFO - GET request - showing filter form
+2026-03-07 18:48:59,704 - INFO - 172.18.0.1 - - [07/Mar/2026 18:48:59] "GET /filter HTTP/1.1" 200 -
+2026-03-07 18:49:07,998 - INFO - 172.18.0.1 - - [07/Mar/2026 18:49:07] "GET /home HTTP/1.1" 200 -
+2026-03-07 18:49:25,960 - INFO - ==================================================
+2026-03-07 18:49:25,961 - INFO - ENTERING filter_data
+2026-03-07 18:49:25,962 - INFO - Method: GET
+2026-03-07 18:49:25,962 - INFO - Session OK: seminar_user
+2026-03-07 18:49:25,966 - INFO - GET request - showing filter form
+2026-03-07 18:49:25,968 - INFO - 172.18.0.1 - - [07/Mar/2026 18:49:25] "GET /filter HTTP/1.1" 200 -
+2026-03-07 18:51:24,584 - INFO - 172.18.0.1 - - [07/Mar/2026 18:51:24] "GET /home HTTP/1.1" 200 -
+2026-03-07 18:51:35,220 - INFO - 172.18.0.1 - - [07/Mar/2026 18:51:35] "GET /view_tables HTTP/1.1" 200 -
+2026-03-07 18:51:42,434 - INFO - 172.18.0.1 - - [07/Mar/2026 18:51:42] "GET /home HTTP/1.1" 200 -
+2026-03-07 18:51:43,613 - INFO - ==================================================
+2026-03-07 18:51:43,614 - INFO - ENTERING filter_data
+2026-03-07 18:51:43,614 - INFO - Method: GET
+2026-03-07 18:51:43,615 - INFO - Session OK: seminar_user
+2026-03-07 18:51:43,615 - INFO - GET request - showing filter form
+2026-03-07 18:51:43,616 - INFO - 172.18.0.1 - - [07/Mar/2026 18:51:43] "GET /filter HTTP/1.1" 200 -
+2026-03-07 19:00:05,376 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 19:00:05,377 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 19:00:05,402 - INFO -  * Restarting with stat
+2026-03-07 19:00:07,411 - WARNING -  * Debugger is active!
+2026-03-07 19:00:07,840 - INFO -  * Debugger PIN: 186-042-211
+2026-03-07 19:05:07,563 - INFO - 172.18.0.1 - - [07/Mar/2026 19:05:07] "[32mGET /home HTTP/1.1[0m" 302 -
+2026-03-07 19:05:07,888 - INFO - 172.18.0.1 - - [07/Mar/2026 19:05:07] "GET /login HTTP/1.1" 200 -
+2026-03-07 19:05:18,315 - INFO - Successful login - User: seminar_user
+2026-03-07 19:05:19,262 - INFO - 172.18.0.1 - - [07/Mar/2026 19:05:19] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-07 19:05:20,430 - INFO - 172.18.0.1 - - [07/Mar/2026 19:05:20] "GET /home HTTP/1.1" 200 -
+2026-03-07 19:05:23,146 - INFO - ==================================================
+2026-03-07 19:05:23,147 - INFO - ENTERING filter_data
+2026-03-07 19:05:23,147 - INFO - Method: GET
+2026-03-07 19:05:23,148 - INFO - Session OK: seminar_user
+2026-03-07 19:05:23,149 - INFO - GET request - showing filter form
+2026-03-07 19:05:23,417 - INFO - 172.18.0.1 - - [07/Mar/2026 19:05:23] "GET /filter HTTP/1.1" 200 -
+2026-03-07 19:16:54,842 - INFO - 172.18.0.1 - - [07/Mar/2026 19:16:54] "[32mGET / HTTP/1.1[0m" 302 -
+2026-03-07 19:17:11,395 - INFO - 172.18.0.1 - - [07/Mar/2026 19:17:11] "[32mGET /home HTTP/1.1[0m" 302 -
+2026-03-07 19:19:41,266 - INFO - Successful login - User: seminar_user
+2026-03-07 19:19:41,267 - INFO - 172.18.0.1 - - [07/Mar/2026 19:19:41] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-07 19:19:57,079 - INFO - ==================================================
+2026-03-07 19:19:57,080 - INFO - ENTERING filter_data
+2026-03-07 19:19:57,081 - INFO - Method: GET
+2026-03-07 19:19:57,082 - INFO - Session OK: seminar_user
+2026-03-07 19:19:57,082 - INFO - GET request - showing filter form
+2026-03-07 19:19:57,084 - INFO - 172.18.0.1 - - [07/Mar/2026 19:19:57] "GET /filter HTTP/1.1" 200 -
+2026-03-07 19:21:30,822 - INFO - ==================================================
+2026-03-07 19:21:30,824 - INFO - ENTERING filter_data
+2026-03-07 19:21:30,825 - INFO - Method: POST
+2026-03-07 19:21:30,831 - INFO - Session OK: seminar_user
+2026-03-07 19:21:30,834 - INFO - PROCESSING POST REQUEST
+2026-03-07 19:21:30,837 - INFO - Form data received: {'filter_type': 'multiple', 'table': 'Books', 'column1': 'author_id', 'value1': '1', 'column2': 'publisher_id', 'value2': '1'}
+2026-03-07 19:21:30,838 - INFO - filter_type: multiple, table: Books
+2026-03-07 19:21:30,877 - INFO - Database connection successful
+2026-03-07 19:21:30,878 - INFO - Processing MULTIPLE filter
+2026-03-07 19:21:30,878 - INFO - Filter 1: author_id = 1 (type: <class 'str'>)
+2026-03-07 19:21:30,879 - INFO - Filter 2: publisher_id = 1 (type: <class 'str'>)
+2026-03-07 19:21:31,011 - INFO - Query returned 1 rows
+2026-03-07 19:21:31,025 - INFO - 172.18.0.1 - - [07/Mar/2026 19:21:31] "POST /filter HTTP/1.1" 200 -
+2026-03-07 19:26:20,691 - INFO - ==================================================
+2026-03-07 19:26:20,692 - INFO - ENTERING filter_data
+2026-03-07 19:26:20,693 - INFO - Method: GET
+2026-03-07 19:26:20,693 - INFO - Session OK: seminar_user
+2026-03-07 19:26:20,694 - INFO - GET request - showing filter form
+2026-03-07 19:26:20,696 - INFO - 172.18.0.1 - - [07/Mar/2026 19:26:20] "GET /filter HTTP/1.1" 200 -
+2026-03-07 19:32:13,364 - INFO - 172.18.0.1 - - [07/Mar/2026 19:32:13] "GET /home HTTP/1.1" 200 -
+2026-03-07 19:32:22,737 - INFO - ==================================================
+2026-03-07 19:32:22,738 - INFO - ENTERING filter_data
+2026-03-07 19:32:22,740 - INFO - Method: GET
+2026-03-07 19:32:22,742 - INFO - Session OK: seminar_user
+2026-03-07 19:32:22,744 - INFO - GET request - showing filter form
+2026-03-07 19:32:22,746 - INFO - 172.18.0.1 - - [07/Mar/2026 19:32:22] "GET /filter HTTP/1.1" 200 -
+2026-03-07 19:49:16,765 - INFO - ==================================================
+2026-03-07 19:49:16,794 - INFO - ENTERING filter_data
+2026-03-07 19:49:16,794 - INFO - Method: GET
+2026-03-07 19:49:16,795 - WARNING - No session, redirecting to login
+2026-03-07 19:49:16,796 - INFO - 172.18.0.1 - - [07/Mar/2026 19:49:16] "[32mGET /filter HTTP/1.1[0m" 302 -
+2026-03-07 19:49:16,930 - INFO - 172.18.0.1 - - [07/Mar/2026 19:49:16] "GET /login HTTP/1.1" 200 -
+2026-03-07 20:01:39,310 - INFO - ==================================================
+2026-03-07 20:01:39,310 - INFO - ENTERING filter_data
+2026-03-07 20:01:39,311 - INFO - Method: GET
+2026-03-07 20:01:39,311 - INFO - Session OK: seminar_user
+2026-03-07 20:01:39,312 - INFO - GET request - showing filter form
+2026-03-07 20:01:39,316 - INFO - 172.18.0.1 - - [07/Mar/2026 20:01:39] "GET /filter HTTP/1.1" 200 -
+2026-03-07 20:21:28,993 - INFO - Successful login - User: seminar_user
+2026-03-07 20:21:29,044 - INFO - 172.18.0.1 - - [07/Mar/2026 20:21:29] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-07 20:21:47,483 - INFO - ==================================================
+2026-03-07 20:21:47,484 - INFO - ENTERING filter_data
+2026-03-07 20:21:47,484 - INFO - Method: POST
+2026-03-07 20:21:47,485 - INFO - Session OK: seminar_user
+2026-03-07 20:21:47,486 - INFO - PROCESSING POST REQUEST
+2026-03-07 20:21:47,487 - INFO - Form data received: {'filter_type': 'multiple', 'table': 'Books', 'column1': 'author_id', 'value1': '1', 'column2': 'publisher_id', 'value2': '1'}
+2026-03-07 20:21:47,488 - INFO - filter_type: multiple, table: Books
+2026-03-07 20:21:47,517 - INFO - Database connection successful
+2026-03-07 20:21:47,518 - INFO - Processing MULTIPLE filter
+2026-03-07 20:21:47,519 - INFO - Filter 1: author_id = 1 (type: <class 'str'>)
+2026-03-07 20:21:47,519 - INFO - Filter 2: publisher_id = 1 (type: <class 'str'>)
+2026-03-07 20:21:47,664 - INFO - Query returned 1 rows
+2026-03-07 20:21:47,689 - INFO - 172.18.0.1 - - [07/Mar/2026 20:21:47] "POST /filter HTTP/1.1" 200 -
+2026-03-07 20:28:56,106 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 20:28:56,107 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 20:28:56,109 - INFO -  * Restarting with stat
+2026-03-07 20:29:07,297 - WARNING -  * Debugger is active!
+2026-03-07 20:29:07,459 - INFO -  * Debugger PIN: 734-311-799
+2026-03-07 20:29:07,562 - INFO - 172.18.0.1 - - [07/Mar/2026 20:29:07] "[32mGET /home HTTP/1.1[0m" 302 -
+2026-03-07 20:29:07,652 - INFO - 172.18.0.1 - - [07/Mar/2026 20:29:07] "GET /login HTTP/1.1" 200 -
+2026-03-07 20:29:12,054 - INFO - Successful login - User: seminar_user
+2026-03-07 20:29:12,056 - INFO - 172.18.0.1 - - [07/Mar/2026 20:29:12] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-07 20:29:12,155 - INFO - 172.18.0.1 - - [07/Mar/2026 20:29:12] "GET /home HTTP/1.1" 200 -
+2026-03-07 20:29:13,898 - INFO - ==================================================
+2026-03-07 20:29:13,899 - INFO - ENTERING filter_data
+2026-03-07 20:29:13,899 - INFO - Method: GET
+2026-03-07 20:29:13,900 - INFO - Session OK: seminar_user
+2026-03-07 20:29:13,901 - INFO - GET request - showing filter form
+2026-03-07 20:29:13,904 - INFO - 172.18.0.1 - - [07/Mar/2026 20:29:13] "GET /filter HTTP/1.1" 200 -
+2026-03-07 20:29:44,482 - INFO - ==================================================
+2026-03-07 20:29:44,484 - INFO - ENTERING filter_data
+2026-03-07 20:29:44,485 - INFO - Method: POST
+2026-03-07 20:29:44,485 - INFO - Session OK: seminar_user
+2026-03-07 20:29:44,486 - INFO - PROCESSING POST REQUEST
+2026-03-07 20:29:44,488 - INFO - Form data received: {'table': 'Books', 'filter_type': 'multiple', 'column': '', 'value': '', 'column1': 'author_id', 'value1': '1', 'column2': 'publisher_id', 'value2': '1'}
+2026-03-07 20:29:44,488 - INFO - filter_type: multiple, table: Books
+2026-03-07 20:29:44,521 - INFO - Database connection successful
+2026-03-07 20:29:44,522 - INFO - Processing MULTIPLE filter
+2026-03-07 20:29:44,523 - INFO - Filter 1: author_id = 1 (type: <class 'str'>)
+2026-03-07 20:29:44,524 - INFO - Filter 2: publisher_id = 1 (type: <class 'str'>)
+2026-03-07 20:29:44,532 - INFO - Query returned 1 rows
+2026-03-07 20:29:44,543 - INFO - 172.18.0.1 - - [07/Mar/2026 20:29:44] "POST /filter HTTP/1.1" 200 -
+2026-03-07 20:43:04,080 - INFO - ==================================================
+2026-03-07 20:43:04,083 - INFO - ENTERING filter_data
+2026-03-07 20:43:04,084 - INFO - Method: GET
+2026-03-07 20:43:04,084 - INFO - Session OK: seminar_user
+2026-03-07 20:43:04,085 - INFO - GET request - showing filter form
+2026-03-07 20:43:04,087 - INFO - 172.18.0.1 - - [07/Mar/2026 20:43:04] "GET /filter HTTP/1.1" 200 -
+2026-03-07 20:43:05,247 - INFO - 172.18.0.1 - - [07/Mar/2026 20:43:05] "GET /home HTTP/1.1" 200 -
+2026-03-07 20:43:06,892 - INFO - 172.18.0.1 - - [07/Mar/2026 20:43:06] "GET /add_book HTTP/1.1" 200 -
+2026-03-07 21:45:56,791 - INFO - 172.18.0.1 - - [07/Mar/2026 21:45:56] "POST /add_book HTTP/1.1" 200 -
+2026-03-07 21:47:04,574 - INFO - 172.18.0.1 - - [07/Mar/2026 21:47:04] "GET /add_book HTTP/1.1" 200 -
+2026-03-07 21:47:06,059 - INFO - 172.18.0.1 - - [07/Mar/2026 21:47:06] "GET /home HTTP/1.1" 200 -
+2026-03-07 21:47:07,976 - INFO - 172.18.0.1 - - [07/Mar/2026 21:47:07] "GET /view_tables HTTP/1.1" 200 -
+2026-03-07 21:47:18,375 - INFO - 172.18.0.1 - - [07/Mar/2026 21:47:18] "GET /view_tables HTTP/1.1" 200 -
+2026-03-07 21:50:51,750 - INFO - 172.18.0.1 - - [07/Mar/2026 21:50:51] "GET /add_complete_book HTTP/1.1" 200 -
+2026-03-07 21:52:51,165 - INFO - Adding book: El Amor en los Tiempos del Cólera, Author: Gabriel García Márquez, Publisher: Penguin Books, Genres: ['Realismo Mágico', 'Romance']
+2026-03-07 21:52:51,547 - ERROR - Error in insert_related: column "birth_year" of relation "Authors" does not exist
+LINE 1: INSERT INTO "Authors" (name, birth_year) VALUES ('Gabriel Ga...
+                                     ^
+
+2026-03-07 21:52:51,548 - ERROR - insert_related returned None
+2026-03-07 21:52:51,549 - INFO - 172.18.0.1 - - [07/Mar/2026 21:52:51] "POST /add_complete_book HTTP/1.1" 200 -
+2026-03-07 21:53:11,265 - INFO - 172.18.0.1 - - [07/Mar/2026 21:53:11] "GET /add_complete_book HTTP/1.1" 200 -
+2026-03-07 21:53:56,958 - INFO - Adding book: El Amor en los Tiempos del Colera, Author: Gabriel Garcia Marquez, Publisher: Penguin Books, Genres: ['Realismo Magico', 'Romance']
+2026-03-07 21:53:56,960 - ERROR - Error in insert_related: column "birth_year" of relation "Authors" does not exist
+LINE 1: INSERT INTO "Authors" (name, birth_year) VALUES ('Gabriel Ga...
+                                     ^
+
+2026-03-07 21:53:56,960 - ERROR - insert_related returned None
+2026-03-07 21:53:56,961 - INFO - 172.18.0.1 - - [07/Mar/2026 21:53:56] "POST /add_complete_book HTTP/1.1" 200 -
+2026-03-07 22:35:08,827 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-07 22:35:13,329 - INFO -  * Restarting with stat
+2026-03-07 22:51:06,182 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 22:51:06,183 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 22:51:06,186 - INFO -  * Restarting with stat
+2026-03-07 22:51:07,447 - WARNING -  * Debugger is active!
+2026-03-07 22:51:07,527 - INFO -  * Debugger PIN: 570-940-043
+2026-03-07 23:09:40,880 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-07 23:09:40,971 - INFO -  * Restarting with stat
+2026-03-07 23:09:42,317 - WARNING -  * Debugger is active!
+2026-03-07 23:09:42,320 - INFO -  * Debugger PIN: 570-940-043
+2026-03-07 23:09:50,870 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 23:09:50,871 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 23:09:50,872 - INFO -  * Restarting with stat
+2026-03-07 23:09:51,868 - WARNING -  * Debugger is active!
+2026-03-07 23:09:51,869 - INFO -  * Debugger PIN: 211-740-766
+2026-03-07 23:10:52,368 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-07 23:10:52,567 - INFO -  * Restarting with stat
+2026-03-07 23:10:54,010 - WARNING -  * Debugger is active!
+2026-03-07 23:10:54,012 - INFO -  * Debugger PIN: 211-740-766
+2026-03-07 23:11:02,012 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 23:11:02,013 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 23:11:02,015 - INFO -  * Restarting with stat
+2026-03-07 23:11:03,052 - WARNING -  * Debugger is active!
+2026-03-07 23:11:03,053 - INFO -  * Debugger PIN: 693-533-671
+2026-03-07 23:11:40,369 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-07 23:11:40,506 - INFO -  * Restarting with stat
+2026-03-07 23:11:41,739 - WARNING -  * Debugger is active!
+2026-03-07 23:11:41,741 - INFO -  * Debugger PIN: 693-533-671
+2026-03-07 23:11:54,553 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 23:11:54,554 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 23:11:54,556 - INFO -  * Restarting with stat
+2026-03-07 23:11:55,627 - WARNING -  * Debugger is active!
+2026-03-07 23:11:55,628 - INFO -  * Debugger PIN: 312-747-023
+2026-03-07 23:13:22,200 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-07 23:13:22,278 - INFO -  * Restarting with stat
+2026-03-07 23:13:23,343 - WARNING -  * Debugger is active!
+2026-03-07 23:13:23,346 - INFO -  * Debugger PIN: 312-747-023
+2026-03-07 23:13:32,776 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 23:13:32,777 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 23:13:32,779 - INFO -  * Restarting with stat
+2026-03-07 23:13:33,864 - WARNING -  * Debugger is active!
+2026-03-07 23:13:33,865 - INFO -  * Debugger PIN: 240-546-193
+2026-03-07 23:15:10,934 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 23:15:10,935 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 23:15:10,937 - INFO -  * Restarting with stat
+2026-03-07 23:15:11,960 - WARNING -  * Debugger is active!
+2026-03-07 23:15:11,962 - INFO -  * Debugger PIN: 956-170-981
+2026-03-07 23:20:06,833 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-07 23:20:07,014 - INFO -  * Restarting with stat
+2026-03-07 23:20:08,235 - WARNING -  * Debugger is active!
+2026-03-07 23:20:08,237 - INFO -  * Debugger PIN: 956-170-981
+2026-03-07 23:20:34,308 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 23:20:34,308 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 23:20:34,309 - INFO -  * Restarting with stat
+2026-03-07 23:20:35,353 - WARNING -  * Debugger is active!
+2026-03-07 23:20:35,355 - INFO -  * Debugger PIN: 531-948-982
+2026-03-07 23:34:43,137 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-07 23:34:43,163 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-07 23:34:43,166 - INFO -  * Restarting with stat
+2026-03-07 23:35:04,073 - WARNING -  * Debugger is active!
+2026-03-07 23:35:05,460 - INFO -  * Debugger PIN: 119-502-950
+2026-03-07 23:37:57,251 - INFO - 172.18.0.1 - - [07/Mar/2026 23:37:57] "[32mGET /add_complete_book HTTP/1.1[0m" 302 -
+2026-03-07 23:37:58,978 - INFO - 172.18.0.1 - - [07/Mar/2026 23:37:58] "GET /login HTTP/1.1" 200 -
+2026-03-07 23:38:14,429 - INFO - Successful login - User: seminar_user
+2026-03-07 23:38:14,576 - INFO - 172.18.0.1 - - [07/Mar/2026 23:38:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-07 23:38:14,912 - INFO - 172.18.0.1 - - [07/Mar/2026 23:38:14] "GET /home HTTP/1.1" 200 -
+2026-03-07 23:38:23,403 - INFO - 172.18.0.1 - - [07/Mar/2026 23:38:23] "GET /add_complete_book HTTP/1.1" 200 -
+2026-03-07 23:39:07,052 - INFO - ==================================================
+2026-03-07 23:39:07,052 - INFO - ADD COMPLETE BOOK - START
+2026-03-07 23:39:07,111 - INFO - Title: El Amor en los Tiempos del Cólera
+2026-03-07 23:39:07,113 - INFO - Author: Gabriel García Márquez, Birth: 1927
+2026-03-07 23:39:07,114 - INFO - Publisher: Penguin Books
+2026-03-07 23:39:07,115 - INFO - Genres raw: Realismo Mágico, Romance
+2026-03-07 23:39:07,116 - INFO - Genres processed: ['Realismo Mágico', 'Romance']
+2026-03-07 23:39:07,117 - INFO - Calling insert_related...
+2026-03-07 23:39:07,117 - INFO - ==============================
+2026-03-07 23:39:07,118 - INFO - INSERT_RELATED - START
+2026-03-07 23:39:07,118 - INFO - Parameters: title=El Amor en los Tiempos del Cólera, author=Gabriel García Márquez, birth=1927, publisher=Penguin Books, genres=['Realismo Mágico', 'Romance']
+2026-03-07 23:39:07,119 - INFO - Inserting/retrieving author...
+2026-03-07 23:39:08,092 - ERROR - ❌ ERROR in insert_related: column "birth_year" of relation "Authors" does not exist
+LINE 1: INSERT INTO "Authors" (name, birth_year) VALUES ('Gabriel Ga...
+                                     ^
+
+2026-03-07 23:39:08,124 - ERROR - Traceback (most recent call last):
+  File "/app/web_app.py", line 115, in insert_related
+    cursor.execute(
+psycopg2.errors.UndefinedColumn: column "birth_year" of relation "Authors" does not exist
+LINE 1: INSERT INTO "Authors" (name, birth_year) VALUES ('Gabriel Ga...
+                                     ^
+
+
+2026-03-07 23:39:08,125 - ERROR - insert_related returned None
+2026-03-07 23:39:08,126 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:08] "POST /add_complete_book HTTP/1.1" 200 -
+2026-03-07 23:39:14,442 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:14] "GET /add_complete_book HTTP/1.1" 200 -
+2026-03-07 23:39:15,663 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:15] "GET /home HTTP/1.1" 200 -
+2026-03-07 23:39:19,531 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:19] "GET /login HTTP/1.1" 200 -
+2026-03-07 23:39:22,037 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:22] "GET /login HTTP/1.1" 200 -
+2026-03-07 23:39:23,306 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:23] "GET /login HTTP/1.1" 200 -
+2026-03-07 23:39:24,748 - INFO - Successful login - User: seminar_user
+2026-03-07 23:39:24,772 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-07 23:39:25,022 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:25] "GET /home HTTP/1.1" 200 -
+2026-03-07 23:39:33,436 - INFO - 172.18.0.1 - - [07/Mar/2026 23:39:33] "GET /add_complete_book HTTP/1.1" 200 -
+2026-03-07 23:40:01,539 - INFO - ==================================================
+2026-03-07 23:40:01,540 - INFO - ADD COMPLETE BOOK - START
+2026-03-07 23:40:01,562 - INFO - Title: El Amor en los Tiempos del Cólera
+2026-03-07 23:40:01,563 - INFO - Author: Gabriel García Márquez, Birth: 1927
+2026-03-07 23:40:01,563 - INFO - Publisher: Penguin Books
+2026-03-07 23:40:01,563 - INFO - Genres raw: Realismo Mágico, Romance
+2026-03-07 23:40:01,564 - INFO - Genres processed: ['Realismo Mágico', 'Romance']
+2026-03-07 23:40:01,564 - INFO - Calling insert_related...
+2026-03-07 23:40:01,565 - INFO - ==============================
+2026-03-07 23:40:01,566 - INFO - INSERT_RELATED - START
+2026-03-07 23:40:01,567 - INFO - Parameters: title=El Amor en los Tiempos del Cólera, author=Gabriel García Márquez, birth=1927, publisher=Penguin Books, genres=['Realismo Mágico', 'Romance']
+2026-03-07 23:40:01,568 - INFO - Inserting/retrieving author...
+2026-03-07 23:40:01,571 - ERROR - ❌ ERROR in insert_related: column "birth_year" of relation "Authors" does not exist
+LINE 1: INSERT INTO "Authors" (name, birth_year) VALUES ('Gabriel Ga...
+                                     ^
+
+2026-03-07 23:40:01,571 - ERROR - Traceback (most recent call last):
+  File "/app/web_app.py", line 115, in insert_related
+    cursor.execute(
+psycopg2.errors.UndefinedColumn: column "birth_year" of relation "Authors" does not exist
+LINE 1: INSERT INTO "Authors" (name, birth_year) VALUES ('Gabriel Ga...
+                                     ^
+
+
+2026-03-07 23:40:01,572 - ERROR - insert_related returned None
+2026-03-07 23:40:01,573 - INFO - 172.18.0.1 - - [07/Mar/2026 23:40:01] "POST /add_complete_book HTTP/1.1" 200 -
+2026-03-08 10:29:40,490 - INFO - 172.18.0.1 - - [08/Mar/2026 10:29:40] "GET /add_complete_book HTTP/1.1" 200 -
+2026-03-08 10:36:26,768 - INFO - Successful login - User: seminar_user
+2026-03-08 10:36:27,142 - INFO - 172.18.0.1 - - [08/Mar/2026 10:36:27] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-08 10:37:12,029 - INFO - ==================================================
+2026-03-08 10:37:12,030 - INFO - ADD COMPLETE BOOK - START
+2026-03-08 10:37:12,063 - INFO - Title: Libro de Prueba
+2026-03-08 10:37:12,064 - INFO - Author: Gabriel García Márquez, Birth: 1927
+2026-03-08 10:37:12,064 - INFO - Publisher: RELX group
+2026-03-08 10:37:12,065 - INFO - Genres raw: Realismo Mágico
+2026-03-08 10:37:12,095 - INFO - Genres processed: ['Realismo Mágico']
+2026-03-08 10:37:12,095 - INFO - Calling insert_related...
+2026-03-08 10:37:12,096 - INFO - ==============================
+2026-03-08 10:37:12,097 - INFO - INSERT_RELATED - START
+2026-03-08 10:37:12,097 - INFO - Parameters: title=Libro de Prueba, author=Gabriel García Márquez, birth=1927, publisher=RELX group, genres=['Realismo Mágico']
+2026-03-08 10:37:12,099 - INFO - Inserting/retrieving author...
+2026-03-08 10:37:12,417 - ERROR - ❌ ERROR in insert_related: column "birth_year" of relation "Authors" does not exist
+LINE 1: INSERT INTO "Authors" (name, birth_year) VALUES ('Gabriel Ga...
+                                     ^
+
+2026-03-08 10:37:12,512 - ERROR - Traceback (most recent call last):
+  File "/app/web_app.py", line 115, in insert_related
+    cursor.execute(
+psycopg2.errors.UndefinedColumn: column "birth_year" of relation "Authors" does not exist
+LINE 1: INSERT INTO "Authors" (name, birth_year) VALUES ('Gabriel Ga...
+                                     ^
+
+
+2026-03-08 10:37:12,524 - ERROR - insert_related returned None
+2026-03-08 10:37:12,525 - INFO - 172.18.0.1 - - [08/Mar/2026 10:37:12] "POST /add_complete_book HTTP/1.1" 200 -
+2026-03-08 10:58:21,500 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-08 11:00:09,278 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-08 11:00:09,279 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-08 11:00:09,291 - INFO -  * Restarting with stat
+2026-03-08 11:00:13,701 - WARNING -  * Debugger is active!
+2026-03-08 11:00:14,121 - INFO -  * Debugger PIN: 190-961-621
+2026-03-08 11:00:39,489 - INFO - Successful login - User: seminar_user
+2026-03-08 11:00:39,492 - INFO - 172.18.0.1 - - [08/Mar/2026 11:00:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-08 11:00:53,867 - INFO - ==================================================
+2026-03-08 11:00:53,868 - INFO - ADD COMPLETE BOOK - START
+2026-03-08 11:00:53,889 - INFO - Title: Libro de Prueba
+2026-03-08 11:00:53,890 - INFO - Author: Gabriel García Márquez, Birth: 1927
+2026-03-08 11:00:53,890 - INFO - Publisher: RELX group
+2026-03-08 11:00:53,892 - INFO - Genres raw: Realismo Mágico
+2026-03-08 11:00:53,893 - INFO - Genres processed: ['Realismo Mágico']
+2026-03-08 11:00:53,894 - INFO - Calling insert_related...
+2026-03-08 11:00:53,894 - ERROR - Error in add_complete_book: name 'sys' is not defined
+2026-03-08 11:00:53,897 - ERROR - Traceback (most recent call last):
+  File "/app/web_app.py", line 422, in add_complete_book
+    book_id = db.insert_related(
+              ^^^^^^^^^^^^^^^^^^
+  File "/app/web_app.py", line 108, in insert_related
+    sys.stdout.flush()
+    ^^^
+NameError: name 'sys' is not defined
+
+2026-03-08 11:00:53,898 - INFO - 172.18.0.1 - - [08/Mar/2026 11:00:53] "POST /add_complete_book HTTP/1.1" 200 -
+2026-03-08 11:15:48,987 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-08 11:15:49,856 - INFO -  * Restarting with stat
+2026-03-08 11:19:51,328 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2026-03-08 11:19:51,329 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-08 11:19:51,330 - INFO -  * Restarting with stat
+2026-03-08 11:19:52,450 - WARNING -  * Debugger is active!
+2026-03-08 11:19:52,466 - INFO -  * Debugger PIN: 145-832-796
+2026-03-08 11:24:12,970 - INFO -  * Detected change in '/app/web_app.py', reloading
+2026-03-08 11:24:13,055 - INFO -  * Restarting with stat

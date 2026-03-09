@@ -13,15 +13,7 @@
         .back { margin-bottom: 20px; }
         .filter-type { margin: 20px 0; }
         .filter-type label { display: inline; margin-right: 20px; }
-        .hidden { display: none; }
     </style>
-    <script>
-        function toggleFilterType() {
-            var filterType = document.querySelector('input[name="filter_type"]:checked').value;
-            document.getElementById('single-filter').classList.toggle('hidden', filterType !== 'single');
-            document.getElementById('multiple-filter').classList.toggle('hidden', filterType !== 'multiple');
-        }
-    </script>
 </head>
 <body>
     <div class="container">
@@ -45,25 +37,25 @@
             
             <div class="filter-type">
                 <label>
-                    <input type="radio" name="filter_type" value="single" checked onclick="toggleFilterType()"> Single Filter
+                    <input type="radio" name="filter_type" value="single" checked onclick="toggleFilter()"> Single Filter
                 </label>
                 <label>
-                    <input type="radio" name="filter_type" value="multiple" onclick="toggleFilterType()"> Multiple Filters
+                    <input type="radio" name="filter_type" value="multiple" onclick="toggleFilter()"> Multiple Filters
                 </label>
             </div>
             
             <div id="single-filter">
                 <div class="form-group">
                     <label>Column:</label>
-                    <input type="text" name="column" placeholder="e.g., name, title, author_id" required>
+                    <input type="text" name="column" placeholder="e.g., name, title">
                 </div>
                 <div class="form-group">
                     <label>Value:</label>
-                    <input type="text" name="value" placeholder="Search value" required>
+                    <input type="text" name="value" placeholder="Search value">
                 </div>
             </div>
             
-            <div id="multiple-filter" class="hidden">
+            <div id="multiple-filter" style="display:none;">
                 <div class="form-group">
                     <label>Column 1:</label>
                     <input type="text" name="column1" placeholder="First column">
@@ -85,5 +77,15 @@
             <button type="submit">Apply Filter</button>
         </form>
     </div>
+    
+    <script>
+        function toggleFilter() {
+            const filterType = document.querySelector('input[name="filter_type"]:checked').value;
+            document.getElementById('single-filter').style.display = 
+                filterType === 'single' ? 'block' : 'none';
+            document.getElementById('multiple-filter').style.display = 
+                filterType === 'multiple' ? 'block' : 'none';
+        }
+    </script>
 </body>
 </html>

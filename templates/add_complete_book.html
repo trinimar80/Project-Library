@@ -20,27 +20,28 @@
             <a href="/home">← Back to Home</a>
         </div>
         
-        <h1>Add Complete Book (with Author, Publisher, Genres)</h1>
+        <h1>Add Complete Book</h1>
         
         <form method="POST" action="/add_complete_book">
             <div class="form-group">
                 <label>Book Title:</label>
-                <input type="text" name="title" required>
+                <input type="text" name="title" required placeholder="e.g., Cien años de soledad">
             </div>
             
             <div class="form-group">
                 <label>Author Name:</label>
-                <input type="text" name="author_name" required>
+                <input type="text" name="author_name" required placeholder="e.g., Gabriel García Márquez">
             </div>
-            
-            <div class="form-group">
-                <label>Author Birth Year:</label>
-                <input type="number" name="author_birth" required>
-            </div>
-            
+                        
             <div class="form-group">
                 <label>Publisher Name:</label>
-                <input type="text" name="publisher_name" required>
+                <input type="text" name="publisher_name" required placeholder="e.g., Penguin Books">
+            </div>
+            
+             <div class="form-group">
+                <label>ISBN:</label>
+                <input type="text" name="isbn" required placeholder="e.g., 978-3-16-148410-0">
+                <div class="note">International Standard Book Number</div>
             </div>
             
             <div class="form-group">
