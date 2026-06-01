@@ -10,6 +10,23 @@ app.secret_key = os.urandom(24)
 
 logging.basicConfig(level=logging.INFO)
 
+VALID_TABLES = {"Authors", "Publishers", "Genres", "Books", "Book_Genres"}
+
+VALID_COLUMNS_PER_TABLE = {
+    "Authors": {"author_id", "name", "nationality"},
+    "Publishers": {"publisher_id", "name"},
+    "Genres": {"genre_id", "name"},
+    "Books": {"book_id", "title", "isbn", "author_id", "publisher_id", "publication_year"},
+    "Book_Genres": {"book_genre_id", "book_id", "genre_id"},
+}
+def validate_sql_identifier(identifier_name, allowed_values, context):
+    """
+    Raises a ValueError if the identifier (table or column) is not in the allowed list.
+    This prevents SQL injection via table or column names.
+    """
+    if identifier_name not in allowed_values:
+        raise ValueError(f"SQL injection attempt detected! '{identifier_name}' is not a valid {context}.")
+
 class DatabaseManager:
     def __init__(self, user, password, host="db", database="seminario_db"):
         self.user = user
@@ -33,18 +50,29 @@ class DatabaseManager:
 
     def view_table(self, table_name):
         try:
+            validate_sql_identifier(table_name, VALID_TABLES, "table name")
             query = sql.SQL("SELECT * FROM {}").format(sql.Identifier(table_name))
             with self.connection.cursor() as cursor:
                 cursor.execute(query)
                 columns = [desc[0] for desc in cursor.description]
                 rows = cursor.fetchall()
                 return columns, rows
+        except ValueError as e:
+            print(f"Security validation error: {e}")
+            return None, None
         except Exception as e:
-            print(f"Error viewing table {table_name}: {e}")
+            logging.error(f"Error viewing table {table_name}: {e}")
             return None, None
 
     def filter_single_value(self, table_name, column, value):
         try:
+            validate_sql_identifier(table_name, VALID_TABLES, "table name")
+            
+            allowed_columns = VALID_COLUMNS_PER_TABLE.get(table_name)
+            if not allowed_columns:
+                raise ValueError(f"No columns defined for table '{table_name}'.")
+            validate_sql_identifier(column, allowed_columns, f"column name for table '{table_name}'")
+            
             query = sql.SQL("SELECT * FROM {} WHERE {} = %s").format(
                 sql.Identifier(table_name), sql.Identifier(column)
             )
@@ -53,22 +81,38 @@ class DatabaseManager:
                 columns = [desc[0] for desc in cursor.description]
                 rows = cursor.fetchall()
                 return columns, rows
+        except ValueError as e:
+            print(f"Security validation error: {e}")
+            return None, None
         except Exception as e:
-            print(f"Error filtering: {e}")
+            logging.error(f"Error filtering table {table_name}: {e}")
             return None, None
 
-    def filter_multiple_values(self, table_name, col1, val1, col2, val2):
+    def filter_multiple_values(self, table_name, column1, value1, column2, value2):
+        """Filter by multiple values with double validation."""
         try:
+            validate_sql_identifier(table_name, VALID_TABLES, "table name")
+            
+            allowed_columns = VALID_COLUMNS_PER_TABLE.get(table_name)
+            if not allowed_columns:
+                raise ValueError(f"No columns defined for table '{table_name}'.")
+            
+            validate_sql_identifier(column1, allowed_columns, f"column name for table '{table_name}'")
+            validate_sql_identifier(column2, allowed_columns, f"column name for table '{table_name}'")
+
             query = sql.SQL("SELECT * FROM {} WHERE {} = %s AND {} = %s").format(
-                sql.Identifier(table_name), sql.Identifier(col1), sql.Identifier(col2)
+                sql.Identifier(table_name), sql.Identifier(column1), sql.Identifier(column2)
             )
             with self.connection.cursor() as cursor:
-                cursor.execute(query, (val1, val2))
+                cursor.execute(query, (value1, value2))
                 columns = [desc[0] for desc in cursor.description]
                 rows = cursor.fetchall()
                 return columns, rows
+        except ValueError as e:
+            print(f"Security validation error: {e}")
+            return None, None
         except Exception as e:
-            print(f"Error multi-filter: {e}")
+            logging.error(f"Error in multi-filter: {e}")
             return None, None
 
     def insert_book(self, title, author_id, publisher_id, year, isbn):

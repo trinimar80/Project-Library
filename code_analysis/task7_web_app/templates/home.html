@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library System - Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        .container { max-width: 600px; margin: auto; }
+        .menu { list-style: none; padding: 0; }
+        .menu li { margin: 15px 0; }
+        .menu a { 
+            display: block; 
+            padding: 15px; 
+            background-color: #f0f0f0; 
+            color: #333; 
+            text-decoration: none; 
+            border-radius: 5px;
+        }
+        .menu a:hover { background-color: #ddd; }
+        .logout { float: right; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/logout" class="logout">Logout</a>
+        <h1>Library Management System</h1>
+        
+        <ul class="menu">
+            <li><a href="/view_tables">📊 View All Tables</a></li>
+            <li><a href="/filter">🔍 Search with Filters</a></li>
+            <li><a href="/add_book">➕ Add Single Book</a></li>
+            <li><a href="/add_complete_book">📚 Add Complete Book</a></li>
+        </ul>
+    </div>
+</body>
+</html>
