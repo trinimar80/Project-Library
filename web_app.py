@@ -231,23 +231,47 @@ def view_tables():
 def filter_data():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
+    
     if request.method == 'POST':
         db = DatabaseManager(session['db_user'], session['db_password'])
         db.connect()
+        
         filter_type = request.form['filter_type']
         table = request.form['table']
+        
         if filter_type == 'single':
-            col = request.form['column']
-            val = request.form['value']
-            cols, rows = db.filter_single_value(table, col, val)
-            return render_template('filter_results.html', columns=cols, rows=rows, table=table)
+            column = request.form['column']
+            value = request.form['value']
+            
+            # Validación manual antes de llamar a la función
+            if table not in VALID_TABLES:
+                return f"SECURITY ERROR: Table '{table}' is not allowed. Valid tables: {', '.join(VALID_TABLES)}"
+            
+            if table in VALID_COLUMNS_PER_TABLE and column not in VALID_COLUMNS_PER_TABLE[table]:
+                return f"SECURITY ERROR: Column '{column}' is not allowed for table '{table}'. Valid columns: {', '.join(VALID_COLUMNS_PER_TABLE[table])}"
+            
+            columns, rows = db.filter_single_value(table, column, value)
+            return render_template('filter_results.html', columns=columns, rows=rows, table=table)
+        
         elif filter_type == 'multiple':
-            col1 = request.form['column1']
-            val1 = request.form['value1']
-            col2 = request.form['column2']
-            val2 = request.form['value2']
-            cols, rows = db.filter_multiple_values(table, col1, val1, col2, val2)
-            return render_template('filter_results.html', columns=cols, rows=rows, table=table)
+            column1 = request.form['column1']
+            value1 = request.form['value1']
+            column2 = request.form['column2']
+            value2 = request.form['value2']
+            
+            # Validación manual antes de llamar a la función
+            if table not in VALID_TABLES:
+                return f"SECURITY ERROR: Table '{table}' is not allowed. Valid tables: {', '.join(VALID_TABLES)}"
+            
+            if table in VALID_COLUMNS_PER_TABLE:
+                if column1 not in VALID_COLUMNS_PER_TABLE[table]:
+                    return f"SECURITY ERROR: Column '{column1}' is not allowed for table '{table}'. Valid columns: {', '.join(VALID_COLUMNS_PER_TABLE[table])}"
+                if column2 not in VALID_COLUMNS_PER_TABLE[table]:
+                    return f"SECURITY ERROR: Column '{column2}' is not allowed for table '{table}'. Valid columns: {', '.join(VALID_COLUMNS_PER_TABLE[table])}"
+            
+            columns, rows = db.filter_multiple_values(table, column1, value1, column2, value2)
+            return render_template('filter_results.html', columns=columns, rows=rows, table=table)
+    
     tables = ["Authors", "Publishers", "Genres", "Books", "Book_Genres"]
     return render_template('filter.html', tables=tables)
 
