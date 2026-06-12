@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 1200px; margin: auto; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .back { margin-bottom: 20px; }
+        .no-results { color: #666; font-style: italic; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back">
+            <a href="/filter">← Back to Filter</a> | <a href="/home">Home</a>
+        </div>
+        
+        <h1>Filter Results - {{ table }}</h1>
+        
+        {% if rows %}
+        <table>
+            <thead>
+                <tr>
+                    {% for column in columns %}
+                    <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    {% for value in row %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="no-results">No results found for your filter criteria.</div>
+        {% endif %}
+    </div>
+</body>
+</html>

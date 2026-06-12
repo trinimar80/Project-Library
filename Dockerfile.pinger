@@ -1,0 +1,33 @@
+# Dockerfile.pinger (tu Dockerfile actual, solo renombrado)
+FROM python:3.11-slim
+
+# Evitar que Python genere archivos .pyc y permitir logs en tiempo real
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Instalar dependencias del sistema para PostgreSQL y Locales
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc \
+    locales \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configurar el locale ru_RU.UTF-8 (necesario según tu docker-compose)
+RUN sed -i -e 's/# ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen && \
+    locale-gen
+ENV LANG ru_RU.UTF-8
+ENV LC_ALL ru_RU.UTF-8
+
+WORKDIR /app
+
+# Instalar dependencias de Python
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+
+# Crear directorio para logs (coincidiendo con el volumen del compose)
+RUN mkdir -p /app/logs
+
+# Comando de ejecución
+CMD ["python", "pinger.py"]
+
